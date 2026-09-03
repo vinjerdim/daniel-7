@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel 7 — Kerajaan Dunia, Kerajaan Allah, dan Anak Manusia</title>
+  <style>
+    :root {
+      --paper: #ECE6D6;
+      --panel: #F6F2E7;
+      --panel-2: #FBF9F2;
+      --ink: #221F1A;
+      --ink-soft: #5B5644;
+      --line: #C9BC98;
+      --line-soft: #DED3AE;
+      --indigo: #2B3A55;
+      --indigo-deep: #1B2740;
+      --gold: #9C7A2E;
+      --gold-soft: #E4D5A4;
+      --ember: #8C3B2E;
+      --ember-soft: #EAD3CD;
+      --sage: #45624A;
+      --sage-soft: #D8E3D2;
+      --radius: 3px;
+      --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #app {
+      max-width: 1080px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    /* ---------- Topbar ---------- */
+    header.topbar {
+      background: var(--indigo-deep);
+      color: var(--gold-soft);
+      padding: 14px 22px 12px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .topbar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      letter-spacing: .2px;
+      color: #F3EBD2;
+      margin: 0;
+    }
+
+    .topbar-title small {
+      display: block;
+      font-family: var(--sans);
+      font-size: .72rem;
+      color: #B9C3D6;
+      margin-top: 2px;
+    }
+
+    .timer-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-display {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: #F3EBD2;
+      min-width: 74px;
+      text-align: center;
+      border: 1px solid #46557A;
+      border-radius: var(--radius);
+      padding: 2px 10px;
+      background: #223357;
+    }
+
+    .timer-controls button {
+      background: transparent;
+      border: 1px solid #46557A;
+      color: #DCE3F2;
+      padding: 5px 9px;
+      font-size: .75rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    .timer-controls button:hover {
+      background: #2E3F63;
+    }
+
+    .progress-track {
+      margin-top: 10px;
+      height: 6px;
+      background: #2A3A5C;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      width: 0%;
+      transition: width .35s ease;
+    }
+
+    .section-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 9px;
+      flex-wrap: wrap;
+    }
+
+    .section-dot {
+      font-size: .68rem;
+      padding: 4px 9px;
+      border-radius: 12px;
+      border: 1px solid #46557A;
+      color: #B9C3D6;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    .section-dot.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--indigo-deep);
+      font-weight: 600;
+    }
+
+    .section-dot.done {
+      border-color: var(--sage);
+      color: #C9E0CC;
+    }
+
+    /* ---------- Main content ---------- */
+    main {
+      flex: 1;
+      padding: 26px 28px 40px;
+    }
+
+    .kicker {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: .95rem;
+      margin: 0 0 4px;
+    }
+
+    h1.section-title {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      margin: 0 0 6px;
+      color: var(--indigo-deep);
+      line-height: 1.25;
+    }
+
+    p.section-sub {
+      color: var(--ink-soft);
+      margin: 0 0 22px;
+      font-size: .96rem;
+      max-width: 70ch;
+    }
+
+    h2.block-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--indigo-deep);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+      margin: 30px 0 14px;
+    }
+
+    h2.block-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .ref-tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .68rem;
+      letter-spacing: .03em;
+      color: var(--indigo);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* reveal card (click/hover to open) */
+    .reveal-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--indigo);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+
+    .reveal-card h3 {
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      margin: 0 0 4px;
+      color: var(--indigo-deep);
+    }
+
+    .reveal-btn {
+      margin-top: 8px;
+      background: var(--indigo);
+      color: #fff;
+      border: none;
+      padding: 7px 14px;
+      font-size: .82rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    .reveal-btn:hover {
+      background: var(--indigo-deep);
+    }
+
+    .reveal-body {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      font-size: .92rem;
+    }
+
+    .reveal-body.open {
+      display: block;
+    }
+
+    .reveal-body .interp {
+      margin-top: 8px;
+      font-size: .85rem;
+      color: var(--ink-soft);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+
+    .interp-label {
+      font-weight: 700;
+      color: var(--indigo-deep);
+      font-size: .72rem;
+      letter-spacing: .02em;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .scripture-placeholder {
+      font-size: .82rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      background: #fff;
+      border: 1px dashed var(--line);
+      padding: 7px 10px;
+      border-radius: var(--radius);
+      margin-top: 8px;
+    }
+
+    /* buttons general */
+    .btn {
+      background: var(--indigo);
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      font-size: .85rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    .btn:hover {
+      background: var(--indigo-deep);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--indigo);
+      border: 1px solid var(--indigo);
+    }
+
+    .btn.secondary:hover {
+      background: var(--line-soft);
+    }
+
+    .btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* Matching activity */
+    .match-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width:640px) {
+      .match-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .match-col h4 {
+      font-family: var(--serif);
+      font-size: .85rem;
+      color: var(--ink-soft);
+      margin: 0 0 8px;
+      text-transform: none;
+    }
+
+    .match-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      margin-bottom: 7px;
+      font-size: .85rem;
+      cursor: pointer;
+      font-family: var(--sans);
+      color: var(--ink);
+    }
+
+    .match-item.selected {
+      border-color: var(--indigo);
+      background: var(--gold-soft);
+    }
+
+    .match-item.matched {
+      border-color: var(--sage);
+      background: var(--sage-soft);
+      cursor: default;
+    }
+
+    .match-item.wrong-flash {
+      border-color: var(--ember);
+      background: var(--ember-soft);
+    }
+
+    /* Ordering activity */
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      margin-bottom: 7px;
+      font-size: .87rem;
+    }
+
+    .order-item.correct-pos {
+      border-color: var(--sage);
+      background: var(--sage-soft);
+    }
+
+    .order-item.wrong-pos {
+      border-color: var(--ember);
+      background: var(--ember-soft);
+    }
+
+    .order-num {
+      font-family: var(--serif);
+      color: var(--gold);
+      font-weight: 700;
+      min-width: 20px;
+    }
+
+    .order-controls {
+      margin-left: auto;
+      display: flex;
+      gap: 4px;
+    }
+
+    .order-controls button {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      font-size: .8rem;
+    }
+
+    /* quiz */
+    .quiz-q {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .quiz-q p.q-text {
+      font-weight: 600;
+      margin: 0 0 10px;
+      font-size: .92rem;
+    }
+
+    .quiz-opt {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      font-size: .85rem;
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    .quiz-opt.correct {
+      border-color: var(--sage);
+      background: var(--sage-soft);
+    }
+
+    .quiz-opt.incorrect {
+      border-color: var(--ember);
+      background: var(--ember-soft);
+    }
+
+    .quiz-opt:disabled {
+      cursor: default;
+    }
+
+    .q-feedback {
+      font-size: .82rem;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .q-feedback.ok {
+      color: var(--sage);
+    }
+
+    .q-feedback.no {
+      color: var(--ember);
+    }
+
+    /* comparison table */
+    table.comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .87rem;
+      background: #fff;
+    }
+
+    table.comp-table th,
+    table.comp-table td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    table.comp-table th {
+      background: var(--indigo);
+      color: #fff;
+      font-family: var(--serif);
+      font-weight: normal;
+    }
+
+    table.comp-table tr.aspect-row td:first-child {
+      font-weight: 700;
+      color: var(--indigo-deep);
+      background: var(--panel);
+      width: 150px;
+    }
+
+    .row-toggle {
+      cursor: pointer;
+    }
+
+    .row-detail {
+      display: none;
+      font-size: .82rem;
+      color: var(--ink-soft);
+      background: var(--gold-soft);
+      border-top: 1px solid var(--gold);
+    }
+
+    .row-detail.open {
+      display: table-row;
+    }
+
+    .row-detail td {
+      border: 1px solid var(--gold);
+    }
+
+    /* cross ref pairs */
+    .xref-pair {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .xref-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width:640px) {
+      .xref-cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .xref-side {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+    }
+
+    .xref-side h4 {
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-size: .9rem;
+      color: var(--indigo-deep);
+    }
+
+    .xref-side p {
+      margin: 0;
+      font-size: .85rem;
+    }
+
+    .checklist label {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: .85rem;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .checklist input {
+      margin-top: 3px;
+    }
+
+    /* opening structure diagram */
+    .diagram {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 20px;
+    }
+
+    .diagram-box {
+      flex: 1;
+      min-width: 220px;
+      background: var(--panel-2);
+      border: 1px solid var(--indigo);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+
+    .diagram-box h4 {
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      color: var(--indigo-deep);
+      font-size: .95rem;
+    }
+
+    .diagram-box ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: .83rem;
+    }
+
+    .diagram-arrow {
+      align-self: center;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    .question-box {
+      background: var(--sage-soft);
+      border: 1px solid var(--sage);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font-size: .9rem;
+    }
+
+    .question-box strong {
+      color: var(--indigo-deep);
+    }
+
+    .note {
+      font-size: .8rem;
+      color: var(--ink-soft);
+      background: var(--panel);
+      border-left: 3px solid var(--gold);
+      padding: 8px 12px;
+      margin: 14px 0;
+    }
+
+    /* footer nav */
+    footer.navbar {
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    footer.navbar .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* synthesis chain */
+    .chain-final {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .chain-final .chip {
+      background: var(--indigo);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 16px;
+      font-size: .85rem;
+      font-family: var(--serif);
+    }
+
+    .chain-final .arrow {
+      align-self: center;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width:680px) {
+      main {
+        padding: 18px 16px 28px;
+      }
+
+      header.topbar {
+        padding: 12px 14px 10px;
+      }
+
+      footer.navbar {
+        padding: 12px 14px;
+        flex-wrap: wrap;
+      }
+
+      .timer-display {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="topbar-row">
+        <h1 class="topbar-title">Daniel 7
+          <small id="section-label">Pendalaman Alkitab Kelompok · ±60 menit</small>
+        </h1>
+        <div class="timer-box">
+          <div class="timer-controls">
+            <button id="timer-start">Mulai</button>
+            <button id="timer-reset-btn">Atur Ulang</button>
+          </div>
+          <div class="timer-display" id="timer-display">60:00</div>
+        </div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="section-dots" id="section-dots"></div>
+    </header>
+
+    <main id="main"></main>
+
+    <footer class="navbar">
+      <button class="btn secondary" id="reset-btn">Reset Sesi</button>
+      <div class="nav-right">
+        <button class="btn secondary" id="prev-btn">← Sebelumnya</button>
+        <button class="btn" id="next-btn">Selanjutnya →</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* =========================================================
+       DATA
+    ========================================================= */
+
+    const beasts = [
+      {
+        name: "Binatang Pertama — Singa Bersayap Elang",
+        ref: "Daniel 7:4",
+        text: "Singa yang mempunyai sayap elang. Sayapnya dicabut, ia diangkat dari tanah dan didirikan di atas dua kaki seperti manusia, lalu diberi hati manusia.",
+        interp: "Umumnya dikaitkan dengan Kerajaan Babel — bandingkan gambaran \"kepala emas\" pada patung di Daniel 2:38."
+      },
+      {
+        name: "Binatang Kedua — Beruang",
+        ref: "Daniel 7:5",
+        text: "Seekor binatang lain, seperti beruang, berdiri miring pada salah satu sisinya, dengan tiga tulang rusuk di mulutnya, di antara giginya. Dikatakan kepadanya: \"Bangunlah, makanlah daging banyak-banyak.\"",
+        interp: "Umumnya dikaitkan dengan Kerajaan Media-Persia."
+      },
+      {
+        name: "Binatang Ketiga — Macan Tutul",
+        ref: "Daniel 7:6",
+        text: "Seekor binatang lain lagi, rupanya seperti macan tutul, dengan empat sayap burung di punggungnya; binatang itu berkepala empat, dan kekuasaan diberikan kepadanya.",
+        interp: "Umumnya dikaitkan dengan Kerajaan Yunani; empat kepala sering dihubungkan dengan terbaginya kerajaan Aleksander Agung sepeninggalnya."
+      },
+      {
+        name: "Binatang Keempat — Mengerikan dan Dahsyat",
+        ref: "Daniel 7:7-8",
+        text: "Binatang keempat, mengerikan, menakutkan, dan sangat kuat; giginya dari besi, memakan dan menghancurkan, sisanya diinjak-injak; berbeda dari binatang-binatang sebelumnya, dan bertanduk sepuluh. Lalu tumbuh tanduk kecil di antara tanduk-tanduk itu, tiga tanduk semula tercabut karenanya; pada tanduk itu ada mata seperti mata manusia dan mulut yang menyombongkan diri.",
+        interp: "Sering dikaitkan dengan Kerajaan Roma — namun perlu dicatat, Daniel 7 sendiri tidak menyebut nama kerajaan ini secara eksplisit; ini kesimpulan yang ditarik penafsir berdasarkan pola pada Daniel 2."
+      }
+    ];
+
+    const otherFigures = [
+      {
+        name: "Yang Lanjut Usianya (Ancient of Days)",
+        ref: "Daniel 7:9-10",
+        text: "Takhta-takhta didirikan, dan Yang Lanjut Usianya duduk; pakaian-Nya putih seperti salju, rambut-Nya bersih seperti bulu domba; takhta-Nya nyala api, rodanya api yang menyala; sungai api mengalir dari hadapan-Nya; ribuan-ribu melayani Dia, berlaksa-laksa berdiri di hadapan-Nya. Pengadilan duduk, dan buku-buku dibuka.",
+        interp: "Menggambarkan Allah sendiri sebagai Hakim yang berdaulat atas sejarah kerajaan-kerajaan dunia."
+      },
+      {
+        name: "Adegan Penghakiman",
+        ref: "Daniel 7:10, 26",
+        text: "Buku-buku dibuka di hadapan pengadilan surgawi. Kemudian pengadilan akan diadakan, dan kekuasaan tanduk kecil itu akan dicabut, lalu dibinasakan dan dilenyapkan untuk seterusnya.",
+        interp: "Adegan pengadilan menjadi titik balik penglihatan: dari dominasi kerajaan-kerajaan dunia menuju berakhirnya kekuasaan mereka."
+      },
+      {
+        name: "\"Seorang seperti Anak Manusia\"",
+        ref: "Daniel 7:13-14",
+        text: "Tampak datang dengan awan-awan di langit seorang seperti Anak Manusia; sampailah ia kepada Yang Lanjut Usianya dan dibawa ke hadapan-Nya. Kepada-Nya diberikan kekuasaan, kemuliaan, dan kekuasaan sebagai raja; segala bangsa, suku bangsa, dan bahasa akan mengabdi kepada-Nya. Kekuasaan-Nya kekuasaan yang kekal, yang tidak akan lenyap, dan kerajaan-Nya tidak akan musnah.",
+        interp: "Sosok ini kontras dengan binatang-binatang buas yang muncul dari laut; identitasnya didiskusikan secara luas di antara penafsir (mis. figur mesianik, figur kolektif, atau keduanya) — Daniel 7 sendiri tidak menjelaskannya secara tuntas dalam pasal ini."
+      },
+      {
+        name: "Kerajaan yang Diberikan",
+        ref: "Daniel 7:14, 18, 27",
+        text: "Kekuasaan itu diberikan kepada Anak Manusia (7:14); pada penjelasan malaikat, dikatakan pula bahwa \"orang-orang kudus milik Yang Mahatinggi akan menerima pemerintahan, dan mereka akan memegang pemerintahan itu untuk selama-lamanya\" (7:18, 27).",
+        interp: "Teks menghubungkan penerimaan kerajaan itu baik kepada Anak Manusia maupun kepada orang-orang kudus — hubungan keduanya adalah salah satu pertanyaan penafsiran utama dalam Daniel 7."
+      },
+      {
+        name: "Reaksi Daniel dan Penjelasan Malaikat",
+        ref: "Daniel 7:15-16, 28",
+        text: "Rohku, aku, Daniel, terharu karena semuanya itu, dan penglihatan yang kulihat itu menggelisahkan aku. Aku mendekati salah seorang dari mereka yang berdiri di situ, dan menanyakan kepadanya kebenaran mengenai semuanya itu... perkataan itu kusimpan dalam hatiku.",
+        interp: "Daniel bukan penonton netral; ia digambarkan sungguh-sungguh terguncang oleh penglihatan itu, dan harus meminta penjelasan — pola ini juga muncul pada penerima wahyu apokaliptik lain, termasuk Yohanes dalam Kitab Wahyu."
+      }
+    ];
+
+    const hornsDetail = {
+      name: "Sepuluh Tanduk dan Tanduk Kecil",
+      ref: "Daniel 7:8, 19-20, 24-25",
+      text: "Binatang keempat bertanduk sepuluh. Tumbuh tanduk kecil lain di antaranya, tiga tanduk semula tercabut karenanya; pada tanduk itu ada mata seperti mata manusia dan mulut yang menyombongkan diri. Menurut penjelasan malaikat: kesepuluh tanduk itu ialah sepuluh raja yang muncul dari kerajaan itu; sesudah mereka muncul seorang raja lain, berbeda dari yang terdahulu, yang akan merendahkan tiga raja; ia akan menyombongkan diri terhadap Yang Mahatinggi, dan berusaha mengubah waktu dan hukum; orang-orang kudus diserahkan ke dalam tangannya untuk satu masa, dua masa, dan setengah masa.",
+      interp: "Banyak penafsir membaca sosok raja ini secara historis (mis. dikaitkan dengan penguasa tertentu pada zaman kerajaan keempat) sekaligus secara pola/tipologis (sebagai bentuk kuasa antikristus yang berulang) — Daniel 7 sendiri memberi ciri-ciri perilakunya tanpa menyebut nama."
+    };
+
+    const orderingItems = [
+      { id: 1, text: "Empat angin ribut mengacaukan laut besar", ref: "7:2" },
+      { id: 2, text: "Empat binatang besar, masing-masing berbeda, naik dari laut", ref: "7:3-7" },
+      { id: 3, text: "Tanduk kecil tumbuh, mencabut tiga tanduk lain, dan berbicara dengan sombong", ref: "7:8" },
+      { id: 4, text: "Takhta-takhta didirikan; Yang Lanjut Usianya duduk mengadili; buku-buku dibuka", ref: "7:9-10" },
+      { id: 5, text: "Binatang keempat dibunuh dan tubuhnya dibinasakan", ref: "7:11" },
+      { id: 6, text: "Seorang seperti Anak Manusia datang dengan awan-awan dan diberi kekuasaan kekal", ref: "7:13-14" },
+      { id: 7, text: "Daniel terharu dan meminta penjelasan; malaikat menerangkan arti penglihatan itu", ref: "7:15-25" },
+      { id: 8, text: "Kerajaan diberikan kepada orang-orang kudus milik Yang Mahatinggi untuk selama-lamanya", ref: "7:26-27" }
+    ];
+
+    const matchingPairs = [
+      { symbol: "Singa bersayap elang", ref: "7:4", desc: "Sayapnya dicabut; diberi hati manusia" },
+      { symbol: "Beruang", ref: "7:5", desc: "Tiga tulang rusuk di mulutnya; disuruh makan banyak daging" },
+      { symbol: "Macan tutul", ref: "7:6", desc: "Berkepala empat, bersayap empat, diberi kekuasaan" },
+      { symbol: "Binatang keempat", ref: "7:7", desc: "Bergigi besi, menghancurkan, bertanduk sepuluh" },
+      { symbol: "Tanduk kecil", ref: "7:8", desc: "Mencabut tiga tanduk; bermata dan bermulut sombong" },
+      { symbol: "Yang Lanjut Usianya", ref: "7:9-10", desc: "Pakaian putih seperti salju; takhta berapi; buku dibuka" },
+      { symbol: "Anak Manusia", ref: "7:13-14", desc: "Datang dengan awan-awan; diberi kekuasaan kekal" }
+    ];
+
+    const quizQuestions = [
+      {
+        q: "Menurut Daniel 7:2, apa yang mengacaukan laut besar sehingga keempat binatang itu muncul?",
+        opts: ["Gempa bumi besar", "Empat angin ribut", "Badai api dari langit", "Gelombang pasang"],
+        correct: 1
+      },
+      {
+        q: "Berapa jumlah tanduk pada binatang keempat, sebelum tanduk kecil tumbuh?",
+        opts: ["7", "10", "12", "3"],
+        correct: 1
+      },
+      {
+        q: "Menurut Daniel 7:9, seperti apa pakaian Yang Lanjut Usianya?",
+        opts: ["Ungu kerajaan", "Putih seperti salju", "Merah seperti darah", "Emas berkilau"],
+        correct: 1
+      },
+      {
+        q: "Menurut Daniel 7:13, ke mana \"seorang seperti Anak Manusia\" itu datang?",
+        opts: ["Turun ke bumi dengan kereta api", "Datang dengan awan-awan menuju Yang Lanjut Usianya", "Naik dari laut bersama binatang-binatang", "Naik ke gunung Sinai"],
+        correct: 1
+      },
+      {
+        q: "Menurut Daniel 7:18 dan 7:27, selain Anak Manusia, siapa lagi yang akhirnya menerima kerajaan itu?",
+        opts: ["Para malaikat penjaga", "Orang-orang kudus milik Yang Mahatinggi", "Raja-raja dunia yang bertobat", "Keturunan Daniel"],
+        correct: 1
+      }
+    ];
+
+    const comparisonRows = [
+      {
+        aspect: "Empat Kerajaan",
+        d2: "Digambarkan lewat satu patung besar dengan empat bagian logam (Daniel 2:32-33).",
+        d7: "Digambarkan lewat empat binatang buas yang muncul berurutan dari laut (Daniel 7:3-7).",
+        detail: "Kedua pasal sama-sama menyusun sejarah menjadi empat kerajaan berurutan — pola ini adalah salah satu alasan utama penafsir membaca Daniel 7 sebagai pengembangan dari Daniel 2."
+      },
+      {
+        aspect: "Gambaran Kerajaan",
+        d2: "Benda buatan manusia: logam yang makin lama makin kurang mulia (emas → perak → tembaga → besi/tanah liat).",
+        d7: "Makhluk hidup yang liar dan menakutkan (singa, beruang, macan tutul, binatang tak bernama).",
+        detail: "Pergeseran dari citra logam (dilihat dari sudut pandang raja Nebukadnezar, Daniel 2:31) ke citra binatang buas (dilihat dari sudut pandang penglihatan malam Daniel, Daniel 7:2) menonjolkan sisi predator/menindas dari kerajaan-kerajaan itu."
+      },
+      {
+        aspect: "Unsur Manusia/Hewan",
+        d2: "Patung berbentuk manusia secara keseluruhan.",
+        d7: "Binatang-binatang buas, meski binatang pertama sempat \"diberi hati manusia\" (7:4) dan tanduk kecil punya \"mata seperti mata manusia\" (7:8).",
+        detail: "Sentuhan unsur manusia pada binatang-binatang itu memunculkan pertanyaan diskusi tersendiri: apa maksudnya, dan mengapa hanya sebagian binatang yang mendapat sentuhan ini?"
+      },
+      {
+        aspect: "Kerajaan Terakhir",
+        d2: "Kaki dan jari dari besi bercampur tanah liat — kuat sekaligus rapuh, dan terbagi (Daniel 2:41-43).",
+        d7: "Binatang keempat yang \"berbeda dari semua binatang sebelumnya\", bertanduk sepuluh, dan memunculkan tanduk kecil (Daniel 7:7-8).",
+        detail: "Daniel 7 memberi lebih banyak detail tentang kerajaan terakhir ini dibanding Daniel 2 — termasuk kemunculan tanduk kecil yang berbicara sombong dan menganiaya orang-orang kudus (7:8, 20-25)."
+      },
+      {
+        aspect: "Penghancuran Kerajaan Dunia",
+        d2: "Batu yang terungkit lepas tanpa perbuatan tangan manusia, menghantam kaki patung hingga seluruhnya hancur menjadi debu (Daniel 2:34-35, 45).",
+        d7: "Pengadilan surgawi diadakan; kekuasaan binatang keempat dicabut dan dibinasakan (Daniel 7:11, 26).",
+        detail: "Daniel 2 menggambarkan kehancuran itu lewat gambar tunggal yang tiba-tiba (batu yang menghantam); Daniel 7 menggambarkannya lewat proses pengadilan dengan takhta, buku, dan keputusan hukum."
+      },
+      {
+        aspect: "Kerajaan yang Diberikan Allah",
+        d2: "Batu itu menjadi gunung besar yang memenuhi seluruh bumi (Daniel 2:35, 44).",
+        d7: "Kerajaan kekal diberikan kepada \"Seorang seperti Anak Manusia\" dan kepada \"orang-orang kudus milik Yang Mahatinggi\" (Daniel 7:14, 18, 27).",
+        detail: "Daniel 2 menegaskan bahwa kerajaan Allah akan menggantikan seluruh kerajaan dunia dan berdiri selama-lamanya (2:44); Daniel 7 memperjelas siapa yang menerima kerajaan itu — sebuah rincian yang belum ada di Daniel 2."
+      },
+      {
+        aspect: "Tema Pemerintahan Allah",
+        d2: "Allah-lah yang menggeser waktu dan zaman, mengangkat dan menurunkan raja-raja, serta mendirikan kerajaan yang tidak akan binasa (Daniel 2:21, 44).",
+        d7: "Allah, sebagai Yang Lanjut Usianya, memimpin pengadilan surgawi dan memberikan kekuasaan kekal kepada Anak Manusia serta orang-orang kudus (Daniel 7:9-10, 14, 26-27).",
+        detail: "Kedua pasal menegaskan kedaulatan Allah atas naik-turunnya kerajaan dunia; Daniel 7 memperluas gambaran ini dengan menampilkan proses pengadilan dan tokoh Anak Manusia sebagai penerima kerajaan."
+      }
+    ];
+
+    const xrefPairs = [
+      {
+        title: "Kedatangan dengan Awan-Awan",
+        dRef: "Daniel 7:13-14",
+        dText: "Tampak datang dengan awan-awan di langit seorang seperti Anak Manusia; ia dibawa ke hadapan Yang Lanjut Usianya dan diberi kekuasaan, kemuliaan, dan kerajaan yang kekal; segala bangsa, suku, dan bahasa mengabdi kepada-Nya.",
+        rRef: "Wahyu 1:7; 1:13-16",
+        rText: "\"Lihatlah, Ia datang dengan awan-awan, dan setiap mata akan melihat Dia\" (1:7). Di tengah kaki-kaki dian itu tampak sesosok seperti Anak Manusia, berjubah panjang, kepala dan rambut-Nya putih seperti bulu domba dan seperti salju, mata-Nya bagaikan nyala api, wajah-Nya bersinar seperti matahari (1:13-16).",
+        prompts: [
+          "Frasa \"datang dengan awan-awan\" muncul pada kedua teks.",
+          "Sebutan \"Anak Manusia\" muncul pada kedua teks."
+        ],
+        note: "Ini adalah pengamatan tekstual yang banyak dicatat penafsir. Makna teologisnya (misalnya, apa yang hendak disampaikan lewat pergeseran ciri-ciri tersebut) tetap merupakan bagian dari diskusi penafsiran, bukan kesimpulan tunggal dari teks itu sendiri."
+      },
+      {
+        title: "Binatang Bertanduk Sepuluh",
+        dRef: "Daniel 7:7-8",
+        dText: "Binatang keempat, mengerikan dan menakutkan, bergigi besi, menghancurkan, dan bertanduk sepuluh. Tumbuh tanduk kecil di antara tanduk-tanduk itu, tiga tanduk semula tercabut karenanya; pada tanduk itu ada mata seperti mata manusia dan mulut yang menyombongkan diri.",
+        rRef: "Wahyu 13:1-2, 5-6",
+        rText: "Seekor binatang keluar dari laut, memiliki sepuluh tanduk dan tujuh kepala, dengan sepuluh mahkota di atas tanduk-tanduknya; rupanya seperti macan tutul, kakinya seperti kaki beruang, dan mulutnya seperti mulut singa; naga memberikan kepadanya kekuatan, takhta, dan kekuasaan besar. Kepadanya diberikan mulut yang menyombongkan diri dan menghujat.",
+        prompts: [
+          "Frasa \"sepuluh tanduk\" muncul pada kedua teks.",
+          "Unsur macan tutul, beruang, dan singa (tiga binatang pertama Daniel 7) tampak digabungkan menjadi satu sosok pada Wahyu 13 — perhatikan penggabungan ini.",
+          "\"Mulut yang menyombongkan diri/menghujat\" pada Wahyu 13 bergema dengan tanduk kecil yang \"berbicara sombong\" pada Daniel 7:8, 20."
+        ],
+        note: "Perbedaan konteks: pada Daniel 7, keempat binatang mewakili kerajaan-kerajaan yang muncul berurutan; pada Wahyu 13, unsur-unsur itu digabung dalam satu sosok binatang. Apakah ini berarti binatang Wahyu 13 dimaksudkan sebagai gabungan seluruh kerajaan dunia sepanjang sejarah — ini adalah pertanyaan tafsir untuk didiskusikan, bukan kesimpulan yang dinyatakan eksplisit oleh salah satu teks."
+      },
+      {
+        title: "Penganiayaan Orang Kudus dan Penghakiman atas Tanduk-Tanduk",
+        dRef: "Daniel 7:19-27",
+        dText: "Tanduk kecil itu berperang melawan orang-orang kudus dan untuk sementara mengalahkan mereka; orang-orang kudus diserahkan ke tangannya untuk satu masa, dua masa, dan setengah masa (7:21, 25). Kemudian pengadilan diadakan; kekuasaannya dicabut dan kerajaan kekal diberikan kepada orang-orang kudus milik Yang Mahatinggi (7:26-27).",
+        rRef: "Wahyu 13:7; 17:12",
+        rText: "Binatang itu diperkenankan berperang melawan orang-orang kudus dan mengalahkan mereka, serta diberi kuasa atas setiap suku, bangsa, bahasa, dan negara (13:7). Dan kesepuluh tanduk yang telah kaulihat itu adalah sepuluh raja, yang belum mulai memerintah, tetapi satu jam lamanya mereka akan menerima kuasa sebagai raja, bersama-sama dengan binatang itu. (17:12)",
+        prompts: [
+          "\"Berperang melawan orang-orang kudus\" dan (untuk sementara) mengalahkan mereka muncul pada kedua teks.",
+          "\"Tanduk = raja\" ditegaskan secara eksplisit pada kedua teks (Daniel 7:24; Wahyu 17:12).",
+          "Kedua teks menyebut batas waktu tertentu bagi kekuasaan itu (\"satu masa, dua masa, setengah masa\" vs \"satu jam lamanya\") — diskusikan apakah maksudnya periode yang sama atau pola yang serupa."
+        ],
+        note: "Pada akhirnya, kekuasaan itu dicabut dan dibinasakan pada kedua kitab (Daniel 7:26; bandingkan Wahyu 17:14, \"Anak Domba akan mengalahkan mereka\"). Detail siapa/kapan secara persis tetap menjadi bahan diskusi antarpenafsir."
+      }
+    ];
+
+    /* =========================================================
+       STATE
+    ========================================================= */
+    const state = {
+      idx: 0,
+      totalSeconds: 3600,
+      remaining: 3600,
+      timerRunning: false,
+      timerHandle: null,
+      matchSel: { left: null },
+      matchedCount: 0,
+      orderState: [],
+      orderChecked: false,
+      quizAnswered: {},
+      synthState: [],
+      synthChecked: false,
+      visited: new Set()
+    };
+
+    const sections = [
+      { id: "opening", label: "1 · Pembukaan", minutes: 5, render: renderOpening },
+      { id: "explore", label: "2 · Menyelidiki Daniel 7", minutes: 20, render: renderExplore },
+      { id: "compare", label: "3 · Daniel 2 ↔ Daniel 7", minutes: 15, render: renderCompare },
+      { id: "xref", label: "4 · Daniel 7 ↔ Wahyu", minutes: 15, render: renderXref },
+      { id: "synthesis", label: "5 · Rangkuman", minutes: 5, render: renderSynthesis }
+    ];
+
+    /* =========================================================
+       HELPERS
+    ========================================================= */
+    function el(tag, cls, html) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (html !== undefined) e.innerHTML = html;
+      return e;
+    }
+
+    function scripturePlaceholder(ref) {
+      return `<div class="scripture-placeholder">📖 Bacakan teks lengkap ${ref} dari Alkitab TB atau NASB 2020 yang Anda pegang, lalu bandingkan dengan ringkasan di atas.</div>`;
+    }
+
+    function makeRevealCard(item) {
+      const card = el("div", "reveal-card");
+      card.innerHTML = `
+    <h3>${item.name} <span class="ref-tag">${item.ref}</span></h3>
+    <button class="reveal-btn">Buka Detail Teks</button>
+    <div class="reveal-body">
+      <p>${item.text}</p>
+      ${scripturePlaceholder(item.ref)}
+      <div class="interp"><span class="interp-label">Interpretasi yang umum diusulkan</span>${item.interp}</div>
+    </div>
+  `;
+      card.querySelector(".reveal-btn").addEventListener("click", (ev) => {
+        const body = card.querySelector(".reveal-body");
+        body.classList.toggle("open");
+        ev.target.textContent = body.classList.contains("open") ? "Sembunyikan Detail" : "Buka Detail Teks";
+      });
+      return card;
+    }
+
+    /* =========================================================
+       SECTION 1 — OPENING
+    ========================================================= */
+    function renderOpening(container) {
+      container.innerHTML = `
+    <p class="kicker">Bagian 1 dari 5 · perkiraan 5 menit</p>
+    <h1 class="section-title">Daniel 7</h1>
+    <h2 class="block-title">Pertanyaan Pembuka (dari Teks)</h2>
+    <div class="question-box"><strong>1.</strong> Bacalah Daniel 7:1. Dalam bentuk apa penglihatan ini diberikan kepada Daniel, dan pada masa pemerintahan siapa?</div>
+    <div class="question-box"><strong>2.</strong> Menurut ayat itu, apa yang dilakukan Daniel terhadap penglihatan yang ia terima?</div>
+  `;
+    }
+
+    /* =========================================================
+       SECTION 2 — EXPLORE DANIEL 7
+    ========================================================= */
+    function renderExplore(container) {
+      container.innerHTML = `
+    <p class="kicker">Bagian 2 dari 5 · perkiraan 20 menit</p>
+    <h1 class="section-title">Menyelidiki Daniel 7</h1>
+    <h2 class="block-title">Aktivitas 1 — Cocokkan Simbol dengan Deskripsi Teks</h2>
+    <p class="section-sub" style="margin-bottom:10px;">Klik satu simbol di kiri, lalu klik deskripsi yang menurut teks cocok dengannya di kanan.</p>
+    <div id="match-slot"></div>
+
+    <h2 class="block-title">Aktivitas 2 — Urutkan Alur Penglihatan</h2>
+    <p class="section-sub" style="margin-bottom:10px;">Gunakan tombol panah untuk menyusun peristiwa berikut sesuai urutan dalam Daniel 7, lalu klik "Periksa Urutan".</p>
+    <div id="order-slot"></div>
+
+    <h2 class="block-title">Aktivitas 3 — Kuis Pemahaman Teks</h2>
+    <div id="quiz-slot"></div>
+
+    <h2 class="block-title">Empat Binatang <span class="ref-tag">Daniel 7:3-8</span></h2>
+    <div class="card-grid" id="beasts-grid"></div>
+
+    <h2 class="block-title">Tanduk-Tanduk</h2>
+    <div id="horns-slot"></div>
+
+    <h2 class="block-title">Ancient of Days, Penghakiman, Anak Manusia, dan Kerajaan</h2>
+    <div class="card-grid" id="others-grid"></div>
+  `;
+
+      const beastsGrid = container.querySelector("#beasts-grid");
+      beasts.forEach(b => beastsGrid.appendChild(makeRevealCard(b)));
+
+      container.querySelector("#horns-slot").appendChild(makeRevealCard(hornsDetail));
+
+      const othersGrid = container.querySelector("#others-grid");
+      otherFigures.forEach(o => othersGrid.appendChild(makeRevealCard(o)));
+
+      renderMatching(container.querySelector("#match-slot"));
+      renderOrdering(container.querySelector("#order-slot"));
+      renderQuiz(container.querySelector("#quiz-slot"));
+    }
+
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function renderMatching(slot) {
+      state.matchSel = { left: null };
+      state.matchedCount = 0;
+      const rightOrder = shuffle(matchingPairs.map((p, i) => i));
+
+      slot.innerHTML = `
+    <div class="match-wrap">
+      <div class="match-col">
+        <h4>Simbol</h4>
+        <div id="match-left"></div>
+      </div>
+      <div class="match-col">
+        <h4>Deskripsi Teks</h4>
+        <div id="match-right"></div>
+      </div>
+    </div>
+    <p id="match-status" style="font-size:.85rem;color:var(--ink-soft);margin-top:6px;">0 dari ${matchingPairs.length} pasangan cocok.</p>
+  `;
+      const leftWrap = slot.querySelector("#match-left");
+      const rightWrap = slot.querySelector("#match-right");
+
+      matchingPairs.forEach((p, i) => {
+        const b = el("button", "match-item", `${p.symbol}`);
+        b.dataset.idx = i;
+        b.addEventListener("click", () => onMatchLeftClick(i, b));
+        leftWrap.appendChild(b);
+      });
+
+      rightOrder.forEach(i => {
+        const p = matchingPairs[i];
+        const b = el("button", "match-item", p.desc);
+        b.dataset.idx = i;
+        b.addEventListener("click", () => onMatchRightClick(i, b, slot));
+        rightWrap.appendChild(b);
+      });
+    }
+
+    function onMatchLeftClick(i, btn) {
+      if (btn.classList.contains("matched")) return;
+      const prevSel = document.querySelector("#match-left .match-item.selected");
+      if (prevSel) prevSel.classList.remove("selected");
+      btn.classList.add("selected");
+      state.matchSel.left = i;
+    }
+
+    function onMatchRightClick(i, btn, slot) {
+      if (btn.classList.contains("matched")) return;
+      if (state.matchSel.left === null) return;
+      const leftBtn = slot.querySelector(`#match-left .match-item[data-idx="${state.matchSel.left}"]`);
+      if (state.matchSel.left === i) {
+        leftBtn.classList.remove("selected");
+        leftBtn.classList.add("matched");
+        btn.classList.add("matched");
+        state.matchedCount++;
+        state.matchSel.left = null;
+      } else {
+        btn.classList.add("wrong-flash");
+        leftBtn.classList.add("wrong-flash");
+        setTimeout(() => {
+          btn.classList.remove("wrong-flash");
+          leftBtn.classList.remove("wrong-flash");
+        }, 500);
+      }
+      slot.querySelector("#match-status").textContent = `${state.matchedCount} dari ${matchingPairs.length} pasangan cocok.`;
+    }
+
+    function renderOrdering(slot) {
+      state.orderState = shuffle(orderingItems);
+      state.orderChecked = false;
+      drawOrdering(slot);
+    }
+
+    function drawOrdering(slot) {
+      const list = el("div");
+      state.orderState.forEach((item, pos) => {
+        const row = el("div", "order-item");
+        row.dataset.id = item.id;
+        row.innerHTML = `
+      <span class="order-num">${pos + 1}</span>
+      <span>${item.text}</span>
+      <span class="order-controls">
+        <button data-dir="up" title="Naik">↑</button>
+        <button data-dir="down" title="Turun">↓</button>
+      </span>
+    `;
+        row.querySelectorAll("button").forEach(btn => {
+          btn.addEventListener("click", () => {
+            moveOrderItem(pos, btn.dataset.dir);
+            drawOrdering(slot);
+          });
+        });
+        list.appendChild(row);
+      });
+
+      const controls = el("div", null, `
+    <button class="btn" id="order-check">Periksa Urutan</button>
+    <button class="btn secondary" id="order-reveal" style="margin-left:8px;">Tampilkan Urutan Benar</button>
+  `);
+
+      slot.innerHTML = "";
+      slot.appendChild(list);
+      slot.appendChild(controls);
+
+      slot.querySelector("#order-check").addEventListener("click", () => {
+        state.orderState.forEach((item, pos) => {
+          const row = slot.querySelector(`.order-item[data-id="${item.id}"]`);
+          row.classList.remove("correct-pos", "wrong-pos");
+          if (item.id === pos + 1) { row.classList.add("correct-pos"); }
+          else { row.classList.add("wrong-pos"); }
+        });
+      });
+      slot.querySelector("#order-reveal").addEventListener("click", () => {
+        state.orderState = orderingItems.slice();
+        drawOrdering(slot);
+        setTimeout(() => {
+          slot.querySelectorAll(".order-item").forEach(r => r.classList.add("correct-pos"));
+        }, 20);
+      });
+    }
+
+    function moveOrderItem(pos, dir) {
+      const newPos = dir === "up" ? pos - 1 : pos + 1;
+      if (newPos < 0 || newPos >= state.orderState.length) return;
+      const arr = state.orderState;
+      [arr[pos], arr[newPos]] = [arr[newPos], arr[pos]];
+    }
+
+    function renderQuiz(slot) {
+      state.quizAnswered = {};
+      slot.innerHTML = "";
+      quizQuestions.forEach((q, qi) => {
+        const box = el("div", "quiz-q");
+        box.innerHTML = `<p class="q-text">${qi + 1}. ${q.q}</p>`;
+        const optsWrap = el("div");
+        q.opts.forEach((opt, oi) => {
+          const b = el("button", "quiz-opt", opt);
+          b.addEventListener("click", () => {
+            if (state.quizAnswered[qi] !== undefined) return;
+            state.quizAnswered[qi] = oi;
+            const correct = oi === q.correct;
+            b.classList.add(correct ? "correct" : "incorrect");
+            if (!correct) {
+              optsWrap.children[q.correct].classList.add("correct");
+            }
+            Array.from(optsWrap.children).forEach(c => c.disabled = true);
+            const fb = el("p", "q-feedback " + (correct ? "ok" : "no"), correct ? "Tepat — sesuai dengan teks." : "Belum tepat — perhatikan jawaban yang ditandai benar, lalu bandingkan dengan teksnya.");
+            box.appendChild(fb);
+          });
+          optsWrap.appendChild(b);
+        });
+        box.appendChild(optsWrap);
+        slot.appendChild(box);
+      });
+    }
+
+    /* =========================================================
+       SECTION 3 — DANIEL 2 <-> DANIEL 7
+    ========================================================= */
+    function renderCompare(container) {
+      container.innerHTML = `
+    <p class="kicker">Bagian 3 dari 5 · perkiraan 15 menit</p>
+    <h1 class="section-title">Daniel 2 ↔ Daniel 7</h1>
+    <div style="overflow-x:auto;">
+      <table class="comp-table" id="comp-table">
+        <thead><tr><th>Aspek</th><th>Daniel 2</th><th>Daniel 7</th></tr></thead>
+        <tbody id="comp-body"></tbody>
+      </table>
+    </div>
+
+    <h2 class="block-title">Pertanyaan Diskusi</h2>
+    <div class="question-box"><strong>1.</strong> Apa pola yang berulang antara Daniel 2 dan Daniel 7?</div>
+    <div class="question-box"><strong>2.</strong> Apa yang berubah dari gambaran Daniel 2 ke gambaran Daniel 7?</div>
+    <div class="question-box"><strong>3.</strong> Apa yang menjadi lebih jelas di Daniel 7 dibanding Daniel 2?</div>
+  `;
+      const body = container.querySelector("#comp-body");
+      comparisonRows.forEach((row, i) => {
+        const tr = el("tr", "aspect-row row-toggle");
+        tr.innerHTML = `<td>${row.aspect}</td><td>${row.d2}</td><td>${row.d7}</td>`;
+        const detailTr = el("tr", "row-detail");
+        detailTr.innerHTML = `<td colspan="3">${row.detail}</td>`;
+        tr.addEventListener("click", () => detailTr.classList.toggle("open"));
+        body.appendChild(tr);
+        body.appendChild(detailTr);
+      });
+    }
+
+    /* =========================================================
+       SECTION 4 — DANIEL 7 <-> WAHYU
+    ========================================================= */
+    function renderXref(container) {
+      container.innerHTML = `
+    <p class="kicker">Bagian 4 dari 5 · perkiraan 15 menit</p>
+    <h1 class="section-title">Daniel 7 ↔ Kitab Wahyu</h1>
+    <p class="section-sub">Bacalah kedua sisi teks berdampingan. Centang pengamatan yang ditemukan kelompok Anda, lalu buka catatan untuk membandingkan.</p>
+    <div id="xref-list"></div>
+  `;
+      const list = container.querySelector("#xref-list");
+      xrefPairs.forEach((pair, idx) => {
+        const box = el("div", "xref-pair");
+        box.innerHTML = `
+      <h2 class="block-title" style="margin-top:0;">${pair.title}</h2>
+      <div class="xref-cols">
+        <div class="xref-side">
+          <h4>Daniel <span class="ref-tag">${pair.dRef}</span></h4>
+          <p>${pair.dText}</p>
+        </div>
+        <div class="xref-side">
+          <h4>Wahyu <span class="ref-tag">${pair.rRef}</span></h4>
+          <p>${pair.rText}</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <strong style="font-size:.85rem;color:var(--indigo-deep);">Temukan bersama kelompok Anda:</strong>
+        <div class="checklist" style="margin-top:8px;">
+          ${pair.prompts.map((p, pi) => `<label><input type="checkbox" data-pair="${idx}" data-p="${pi}"> ${p}</label>`).join("")}
+        </div>
+        <button class="reveal-btn" style="margin-top:4px;">Bandingkan Catatan</button>
+        <div class="reveal-body">
+          <div class="interp"><span class="interp-label">Catatan (bukan kesimpulan tunggal)</span>${pair.note}</div>
+        </div>
+      </div>
+    `;
+        const revealBtn = box.querySelector(".reveal-btn");
+        revealBtn.addEventListener("click", () => {
+          const body = box.querySelector(".reveal-body");
+          body.classList.toggle("open");
+          revealBtn.textContent = body.classList.contains("open") ? "Sembunyikan Catatan" : "Bandingkan Catatan";
+        });
+        list.appendChild(box);
+      });
+      container.insertAdjacentHTML("beforeend", `
+    <p class="note">Perhatikan juga perbedaan konteks: Daniel 7 adalah nubuat yang memandang ke depan dari zaman pembuangan Babel, sedangkan Wahyu ditulis kepada jemaat abad pertama dan menambahkan tokoh-tokoh lain (naga, pelacur besar, Anak Domba) yang tidak muncul di Daniel 7.</p>
+  `);
+    }
+
+    /* =========================================================
+       SECTION 5 — SYNTHESIS
+    ========================================================= */
+    const synthPieces = [
+      { id: 1, label: "Kerajaan manusia", detail: "Empat kerajaan dunia silih berganti, memuncak pada kekuatan yang menindas orang-orang kudus (Daniel 7:3-8, 19-25)." },
+      { id: 2, label: "Penghakiman Allah", detail: "Takhta-takhta didirikan, buku-buku dibuka, dan kekuasaan kerajaan itu dicabut (Daniel 7:9-10, 26)." },
+      { id: 3, label: "Anak Manusia", detail: "Seorang seperti Anak Manusia datang dengan awan-awan dan diberi kekuasaan, kemuliaan, dan kerajaan yang kekal (Daniel 7:13-14)." },
+      { id: 4, label: "Kerajaan yang kekal", detail: "Kerajaan itu juga diberikan kepada orang-orang kudus milik Yang Mahatinggi, untuk selama-lamanya (Daniel 7:18, 27)." }
+    ];
+
+    function renderSynthesis(container) {
+      container.innerHTML = `
+    <p class="kicker">Bagian 5 dari 5 · perkiraan 5 menit</p>
+    <h1 class="section-title">Menyusun Rangkuman</h1>
+    <p class="section-sub">Berdasarkan seluruh penyelidikan tadi, susunlah empat potongan berikut menjadi alur yang benar sesuai Daniel 7, lalu buka rangkuman lengkapnya.</p>
+    <div id="synth-slot"></div>
+    <div id="synth-final"></div>
+  `;
+      state.synthState = shuffle(synthPieces);
+      state.synthChecked = false;
+      drawSynthesis(container.querySelector("#synth-slot"));
+    }
+
+    function drawSynthesis(slot) {
+      const list = el("div");
+      state.synthState.forEach((item, pos) => {
+        const row = el("div", "order-item");
+        row.dataset.id = item.id;
+        row.innerHTML = `
+      <span class="order-num">${pos + 1}</span>
+      <span><strong>${item.label}</strong> — ${item.detail}</span>
+      <span class="order-controls">
+        <button data-dir="up" title="Naik">↑</button>
+        <button data-dir="down" title="Turun">↓</button>
+      </span>
+    `;
+        row.querySelectorAll("button").forEach(btn => {
+          btn.addEventListener("click", () => {
+            moveSynthItem(pos, btn.dataset.dir);
+            drawSynthesis(slot);
+          });
+        });
+        list.appendChild(row);
+      });
+      const controls = el("div", null, `
+    <button class="btn" id="synth-check">Periksa Urutan</button>
+    <button class="btn secondary" id="synth-reveal" style="margin-left:8px;">Tampilkan Rangkuman</button>
+  `);
+      slot.innerHTML = "";
+      slot.appendChild(list);
+      slot.appendChild(controls);
+
+      slot.querySelector("#synth-check").addEventListener("click", () => {
+        state.synthState.forEach((item, pos) => {
+          const row = slot.querySelector(`.order-item[data-id="${item.id}"]`);
+          row.classList.remove("correct-pos", "wrong-pos");
+          if (item.id === pos + 1) row.classList.add("correct-pos");
+          else row.classList.add("wrong-pos");
+        });
+      });
+      slot.querySelector("#synth-reveal").addEventListener("click", () => {
+        document.querySelector("#synth-final").innerHTML = `
+      <div class="chain-final">
+        ${synthPieces.map((p, i) => `<span class="chip">${p.label}</span>${i < synthPieces.length - 1 ? '<span class="arrow">→</span>' : ''}`).join("")}
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <p style="margin:0;">Daniel 7 menampilkan alur: kerajaan-kerajaan manusia yang silih berganti dan cenderung menindas (empat binatang) menuju penghakiman Allah dari takhta surgawi (Yang Lanjut Usianya, buku-buku dibuka), lalu kekuasaan kekal diberikan kepada Seorang seperti Anak Manusia, dan kerajaan yang sama juga dijanjikan kepada orang-orang kudus milik Yang Mahatinggi untuk selama-lamanya. Pola ini menggemakan dan memperjelas apa yang sudah diperkenalkan secara lebih umum dalam Daniel 2, dan tema-temanya terus muncul dalam Kitab Wahyu.</p>
+      </div>
+    `;
+      });
+    }
+
+    function moveSynthItem(pos, dir) {
+      const newPos = dir === "up" ? pos - 1 : pos + 1;
+      if (newPos < 0 || newPos >= state.synthState.length) return;
+      const arr = state.synthState;
+      [arr[pos], arr[newPos]] = [arr[newPos], arr[pos]];
+    }
+
+    /* =========================================================
+       APP CONTROLLER: nav, progress, timer
+    ========================================================= */
+    const mainEl = document.getElementById("main");
+    const dotsEl = document.getElementById("section-dots");
+    const progressFill = document.getElementById("progress-fill");
+    const sectionLabel = document.getElementById("section-label");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    function buildDots() {
+      dotsEl.innerHTML = "";
+      sections.forEach((s, i) => {
+        const d = el("button", "section-dot", s.label);
+        d.addEventListener("click", () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+    }
+
+    function goTo(i) {
+      state.idx = i;
+      state.visited.add(i);
+      renderCurrent();
+    }
+
+    function renderCurrent() {
+      const sec = sections[state.idx];
+      sec.render(mainEl);
+      sectionLabel.textContent = `Pendalaman Alkitab Kelompok · ${sec.label} · perkiraan ${sec.minutes} menit`;
+      const pct = ((state.idx + 1) / sections.length) * 100;
+      progressFill.style.width = pct + "%";
+      Array.from(dotsEl.children).forEach((d, i) => {
+        d.classList.toggle("active", i === state.idx);
+        d.classList.toggle("done", state.visited.has(i) && i !== state.idx);
+      });
+      prevBtn.disabled = state.idx === 0;
+      nextBtn.textContent = state.idx === sections.length - 1 ? "Selesai ✓" : "Selanjutnya →";
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    prevBtn.addEventListener("click", () => { if (state.idx > 0) goTo(state.idx - 1); });
+    nextBtn.addEventListener("click", () => {
+      if (state.idx < sections.length - 1) goTo(state.idx + 1);
+    });
+
+    document.getElementById("reset-btn").addEventListener("click", () => {
+      if (confirm("Reset seluruh sesi (kembali ke awal, kuis dan aktivitas diulang)?")) {
+        state.idx = 0;
+        state.visited = new Set();
+        resetTimer();
+        buildDots();
+        renderCurrent();
+      }
+    });
+
+    /* Timer */
+    const timerDisplay = document.getElementById("timer-display");
+    const timerStartBtn = document.getElementById("timer-start");
+    const timerResetBtn = document.getElementById("timer-reset-btn");
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2, "0");
+      const s = Math.floor(sec % 60).toString().padStart(2, "0");
+      return `${m}:${s}`;
+    }
+    function tick() {
+      if (state.remaining > 0) {
+        state.remaining--;
+        timerDisplay.textContent = formatTime(state.remaining);
+      } else {
+        stopTimer();
+        timerDisplay.textContent = "00:00";
+      }
+    }
+    function startTimer() {
+      if (state.timerRunning) return;
+      state.timerRunning = true;
+      timerStartBtn.textContent = "Jeda";
+      state.timerHandle = setInterval(tick, 1000);
+    }
+    function stopTimer() {
+      state.timerRunning = false;
+      timerStartBtn.textContent = "Mulai";
+      clearInterval(state.timerHandle);
+    }
+    function resetTimer() {
+      stopTimer();
+      state.remaining = state.totalSeconds;
+      timerDisplay.textContent = formatTime(state.remaining);
+    }
+    timerStartBtn.addEventListener("click", () => {
+      state.timerRunning ? stopTimer() : startTimer();
+    });
+    timerResetBtn.addEventListener("click", resetTimer);
+
+    /* Init */
+    buildDots();
+    resetTimer();
+    goTo(0);
+  </script>
+</body>
+
+</html>
